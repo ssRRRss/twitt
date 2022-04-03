@@ -66,10 +66,9 @@ def tweet_delete_view(request, tweet_id, *arg, **kwarg):
 
 
 
-@api_view(["POST"])
+@api_view(["DELETE", "POST"])
 @permission_classes([IsAuthenticated])
 def tweet_action_view(request, *arg, **kwarg):
-    #print(request.data)
     serializer = TweetActionSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         data = serializer.validated_data
@@ -92,6 +91,9 @@ def tweet_action_view(request, *arg, **kwarg):
             new_tweet = Tweet.objects.create(user=request.user, parent=obj, content=content)
             serializer = TweetSerializer(new_tweet)
             return Response(serializer.data,  status=201)
+        elif action == "delete":
+            obj.delete()
+            return Response({"message":"Successfully delete"},  status=200)
     return Response({"message":"Successfully"},  status=200)
 
 

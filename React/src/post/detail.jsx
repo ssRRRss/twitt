@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ActionBtn } from "./buttons";
+import { ActionBtn, DeleteActionBtn } from "./buttons";
 
 
 const UserPicture = ({ user }) => {
@@ -72,6 +72,7 @@ export const Tweet = ({ tweet, didRetweet, hideActions, className }) => {
                         <ActionBtn tweet={actionTweet} didPerformAction={didPerformAction} action={{type:"like", display:"Likes"}} />
                         <ActionBtn tweet={actionTweet} didPerformAction={didPerformAction} action={{type:"unlike", display:"Unlikes"}} />
                         <ActionBtn tweet={actionTweet} didPerformAction={didPerformAction} action={{type:"retweet", display:"Retweet"}} />
+                        <DeleteActionBtn tweet={actionTweet} didPerformAction={didPerformAction} action={{type:"delete", display:"Delete"}} />
                     </React.Fragment>
                 }
                     {is_Detail === true ? null : <button className="btn btn-outline-primary mx-1 rounded-pill" onClick={handleLink}>View</button>}

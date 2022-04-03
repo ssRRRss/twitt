@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 LOGIN_URL = ["/login"]
 
 MAX_TWEET_LENGTH = 240
-TWEET_ACTON_OPTIONS = ["like", "unlike", "retweet"]
+TWEET_ACTON_OPTIONS = ["like", "unlike", "retweet", "delete"]
 
 CORS_ALLOW_ALL_ORIGINS = True   #Any website has access to my api
 CORS_URLS_REGEX = r"^/api/.*$"

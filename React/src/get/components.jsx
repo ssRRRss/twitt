@@ -40,14 +40,11 @@ export const backendLookup = (method, endpoint, callback, data) => {
                 window.location.href = "/login?showLoginRequired=true"
             }
         }
-        //console.log(xhr.response, xhr.status)
         callback(xhr.response, xhr.status)
     }
     xhr.onerror = (e) => {
-        //console.log("error", e)
         callback({"message":"The request was Error"}, 400)
     }
-    //console.log(jsonData);
     xhr.send(jsonData);
 }
 
