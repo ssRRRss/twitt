@@ -1,0 +1,13 @@
+<form method="POST">
+{% csrf_token %}
+            {{form.as_p}}
+            <h4>{{description}}</h4>
+            <button type="submit" class="btn btn-primary rounded">
+                {% if btn_label %}
+                    {{btn_label}}
+                {% else %}
+                    Save
+                {% endif %}
+            </button>
+            <button type="button" class="d-flex my-3 btn btn-info rounded" onclick="window.location.href ='/'">Home</button>
+<form>
